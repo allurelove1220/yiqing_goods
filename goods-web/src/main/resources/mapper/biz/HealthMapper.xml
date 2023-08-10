@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.goods.business.mapper.HealthMapper">
+    <select id="isReport" resultType="com.goods.common.model.business.Health">
+        select id,
+               address,
+               user_id,
+               situation,
+               touch,
+               passby,
+               reception,
+               create_time
+        from biz_health
+        where user_id = #{id} and DATE (create_time) = CURDATE();
+    </select>
+</mapper>
